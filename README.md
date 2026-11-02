@@ -104,7 +104,7 @@ placeholders. The whole-slide images are in HEST-1k, `wsis = "tif"` in
 ## Citation
 
 The manuscript is under review; its citation will be added here once it appears.
-The code is archived at Zenodo, DOI zenodo.XXXXX.
+The code is archived at Zenodo, DOI 10.5281/zenodo.23891032.
 
 consICA is published separately:
 
