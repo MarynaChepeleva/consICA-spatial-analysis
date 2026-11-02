@@ -2,8 +2,6 @@
 
 Code for the manuscript *Consensus independent component analysis resolves
 tumour spatial transcriptomics into interpretable transcriptional programmes*.
-The citation and the link to the published version will be added here once it
-appears.
 
 consICA resolves a spatial expression matrix into transcriptional programmes
 without being given the coordinates of the units. Each programme is a gene
@@ -72,7 +70,7 @@ sections 3.1 and 3.2 of the paper, where the vasculature separates into blood
 endothelium, mural cells and lymphatic endothelium, and the keratinocytes into
 differentiation stages.
 
-**The comparison** (`scripts/benchmark/` is the record of how its numbers were
+**The comparison** (`scripts/benchmark/`) is the record of how its numbers were
 produced. `0_run_benchmark.R` holds the sixteen steps in order; its
 header gives the file dependency that fixes the order. `DRY_RUN` is `TRUE` by
 default, so the script prints the plan and runs nothing until it is set to
