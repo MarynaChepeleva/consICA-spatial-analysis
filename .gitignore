@@ -1,0 +1,15 @@
+data/HEST/
+data/zenodo/
+
+output/*
+!output/.gitkeep
+
+/config/
+/heap/
+
+.Renviron
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+Rplots.pdf

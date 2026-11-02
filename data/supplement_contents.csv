@@ -1,0 +1,76 @@
+sheet,column,definition
+,,"Supplementary tables for: Chepeleva M, Despotovic V, Rigg E, Zhang J, Grabis E, Toth R, Thorsen F, Nazarov PV. Consensus independent component analysis resolves tumour spatial transcriptomics into interpretable transcriptional programmes. This sheet defines every column of the four tables that follow."
+Table S1. Components,,"One row per independent component of the three demonstration slides: the eight of TENX117 at k=8 and the twenty each of MEND40 and NCBI776 at k=20."
+Table S1. Components,Slide,Slide identifier as used throughout the paper and in Table 1.
+Table S1. Components,Platform,"Assay: Xenium, Visium, or the probe-based Visium CytAssist. The enrichment statistic depends on it, see GO_pos."
+Table S1. Components,k,Number of components the slide was decomposed into.
+Table S1. Components,IC,"Component label. Independent components carry no order, so the index is a name and not a rank."
+Table S1. Components,Morans_I,"Moran's I of the component's weight map, on the lattice adjacency of the platform: six neighbours on the hexagonal Visium array, eight on the square Xenium bin grid."
+Table S1. Components,perm_p,"Permutation p for that Moran's I, from 500 reassignments of the component weights. 0.002 is the floor of the null and means no reassignment reached the observed value."
+Table S1. Components,cor_depth,"Pearson correlation between the component's weights and the number of transcripts per spatial unit. A large value marks a component that tracks sequencing depth, though not necessarily a technical one."
+Table S1. Components,top_pos,"The genes of highest positive loading in decreasing order of loading: twenty per component tail, as the annotation export wrote them. The order is the one returned by the decomposition and is never resorted."
+Table S1. Components,GO_pos,"The five leading biological-process terms of the positive tail, in the order topGO returned them, each followed by its statistic. TENX117 carries the nominal Fisher p, written p =; the two Visium slides carry the Benjamini-Hochberg adjusted value, written FDR =. Adjusted values below 1e-26 encode rank rather than strength, as explained for classicFisher in Table S2."
+Table S1. Components,top_neg,As top_pos for the negative tail.
+Table S1. Components,GO_neg,"As GO_pos for the negative tail. Signatures were oriented to their positive tail for enrichment, so a negative-tail term describes the opposite pole of the same component."
+Table S2. GO,,"The twenty leading biological-process terms of each component tail, in the order topGO returned them, significant or not. Covers the three demonstration slides and the five xenograft sections; on TENX115 and NCBI600 enrichment was computed only inside the method comparison and enters Table S3 as the count of annotated components."
+Table S2. GO,Slide,"Slide identifier. XG6 to XG1 are the xenograft sections, numbered as supplied."
+Table S2. GO,k,Number of components the slide was decomposed into.
+Table S2. GO,IC,Component label.
+Table S2. GO,tail,"Tail of the signature the gene set was taken from, positive or negative."
+Table S2. GO,annotation_db,"Annotation database the test was run against, human or mouse. Only the xenograft is tested against both, its matrix spanning two genomes."
+Table S2. GO,rank,"Position of the term within one slide, component, tail and database, in the order topGO returned them."
+Table S2. GO,GO.ID,Gene Ontology accession.
+Table S2. GO,Term,"Full term name. Restored from GO.db where topGO's GenTable had truncated it to forty characters."
+Table S2. GO,Annotated,Genes annotated to the term in the background set.
+Table S2. GO,Significant,Genes of the tested set annotated to the term.
+Table S2. GO,Expected,Genes expected under the null.
+Table S2. GO,classicFisher,"Nominal p of Fisher's exact test, run under topGO's weight algorithm. A value of 1e-31 is not a measurement: it marks a p topGO printed only as < 1e-30, which consICA rewrites before adjustment."
+Table S2. GO,FDR,"Benjamini-Hochberg adjusted p. topGO states that weight p-values are neither independent nor intended for multiple-testing correction, so this is an order of magnitude and not an exact probability. Where classicFisher is the floored 1e-31, the adjusted value encodes rank rather than strength."
+Table S3. Comparison,,"One row per slide, configuration, perturbation mode, component number and gene exclusion. Each row summarizes ten repeats. All correlation-based measures are computed on S from absolute correlations and are therefore invariant to the sign of a component. From Moran_I_median onwards the measures are empty in the perturbed modes and at k=50."
+Table S3. Comparison,Slide,Slide identifier.
+Table S3. Comparison,Configuration,"Readable name of the configuration. ICASpatial (CellsFromSpace) is kept here, unlike in the main comparison table, so that its identity with fixed-initialization icafast can be checked."
+Table S3. Comparison,Method_id,"Label of the configuration in the benchmark output, for matching the sheet to the analysis code."
+Table S3. Comparison,Source_axis,"Axis the configuration was fitted on, named as in Table 2 by what it estimates: gene signatures where ICA was applied to the expression matrix, spatial profiles where it was applied to the transposed matrix, gene loadings then being obtained by projection."
+Table S3. Comparison,k,"Number of components. Twenty is the featured setting, fifty a sensitivity analysis run on MEND40 and NCBI776."
+Table S3. Comparison,gene_excluded_pct,"Percentage of genes excluded under gene perturbation; 0 in the other two modes. Fifteen is a sensitivity analysis run on MEND40 and NCBI600."
+Table S3. Comparison,Condition,"Perturbation mode: Full data reseeds the algorithm only; 95% units resamples 95% of spatial units and recomputes SCTransform; 95% genes and 85% genes resample that share of genes from the existing residuals."
+Table S3. Comparison,Matched_stability,"Mean absolute correlation of gene signatures after an optimal one-to-one assignment between the two sets of components (Hungarian algorithm), averaged over every pair of repeats."
+Table S3. Comparison,SD_matched,Standard deviation of Matched_stability over the 45 pairs formed from ten repeats.
+Table S3. Comparison,TopGene_Jaccard,"Overlap of the fifty genes of highest absolute loading in matched components, averaged over pairs of repeats. Where genes were excluded, each repeat's list is drawn from its own gene set, so the overlap reflects both the loss of genes and the change in their ranks."
+Table S3. Comparison,SD_TopGene,Standard deviation of TopGene_Jaccard over the same pairs.
+Table S3. Comparison,N_matched_above_0.5,"Number of matched components whose correlation exceeds 0.5, averaged over pairs of repeats and therefore not an integer."
+Table S3. Comparison,N_matched_above_0.7,As N_matched_above_0.5 at 0.7.
+Table S3. Comparison,Intra_uniqueness,"One minus the mean absolute correlation over the distinct pairs of components of one decomposition, averaged over the ten repeats. A single ICA fit leaves its components uncorrelated on the axis it was fitted on, so a value at 1 reflects that constraint and not biological distinctness."
+Table S3. Comparison,Moran_I_median,"Median Moran's I over the components of the decomposition, on the lattice adjacency of the platform: six neighbours on the hexagonal Visium array, eight on the square Xenium bin grid."
+Table S3. Comparison,Moran_I_min,Smallest Moran's I over those components.
+Table S3. Comparison,Moran_I_max,Largest Moran's I over those components.
+Table S3. Comparison,frac_components_autocorrelated,"Fraction of components significant against a permutation null of Moran's I, 500 reassignments of the component weights."
+Table S3. Comparison,Moran_I_median_over_repeats,"Median over the ten repeats of the per-repeat median Moran's I. Given for the single-run control alone, whose decomposition is one stochastic draw, so that the draw can be placed against the spread of the same statistic."
+Table S3. Comparison,Moran_I_median_min_over_repeats,Smallest of those ten per-repeat medians.
+Table S3. Comparison,Moran_I_median_max_over_repeats,Largest of those ten per-repeat medians.
+Table S3. Comparison,n_components_annotated,"Components carrying at least one biological-process term significant after Benjamini-Hochberg correction within that component's own tested terms, at adjusted p below 0.05. Out of k."
+Table S3. Comparison,SemUniq_rank,"One minus the semantic similarity of the enriched terms across components (GOSemSim, Wang measure, best-match-average), so it measures the terms and not the loadings. Gene selection is the hundred of highest loading, or forty on the Xenium panels."
+Table S3. Comparison,SemUniq_zscore,"The same measure on the second gene selection: genes whose loading z-score exceeds three, rather than the hundred of highest loading. The two columns differ in which genes entered the enrichment, not in how similarity was measured."
+Table S3. Comparison,Overlap_top_n,"Length of the leading-gene list taken from each component: forty on the Xenium panels, a hundred on the Visium slides, matching the gene selection of the enrichment. The overlap columns are therefore not comparable between the two platforms."
+Table S3. Comparison,Overlap_mean_jaccard,"Mean Jaccard overlap of those lists over the 190 distinct pairs of components of one decomposition. Unlike TopGene_Jaccard, which compares matched components across two repeats, this compares different components of one decomposition."
+Table S3. Comparison,Overlap_max_jaccard,"Largest overlap among those pairs: how much the two most similar components of one decomposition share."
+Table S3. Comparison,Overlap_union,"Distinct genes in the union of the k lists. Its maximum is k times Overlap_top_n, reached only if no two components shared a gene."
+Table S4. Xenograft,,"One row per section, component and tail, at k=12 across all five sections. A tail with no gene above the threshold keeps its row with a count of zero; its permutation columns are blank, as they are for any tail too small for the test. The row is a tail because the two tails of one component differ in their genome of origin. That origin comes from separate alignment to the human and mouse references and never entered the decomposition."
+Table S4. Xenograft,Slide,"Section identifier: XG6 the section shown in detail, XG5, XG7 and XG8 the further tumour sections, XG1 the tumour-free control."
+Table S4. Xenograft,k,Number of components the section was decomposed into.
+Table S4. Xenograft,IC,Component label.
+Table S4. Xenograft,tail,"Tail of the signature, positive or negative, at an absolute z of the loading above three."
+Table S4. Xenograft,n,Genes in the tail.
+Table S4. Xenograft,n_human,Genes in the tail that belong to the human genome.
+Table S4. Xenograft,human_pct,n_human as a percentage of n.
+Table S4. Xenograft,n_paired,"Human genes in the tail whose mouse orthologue also lies in the same tail. A high proportion is compatible with cross-mapping between the two references or with a programme expressed in both species."
+Table S4. Xenograft,paired_pct,n_paired as a percentage of n_human.
+Table S4. Xenograft,pooled_human_pct,"Percentage of human genes when the two tails of the component are taken together: what a criterion that ignored the sign of the loading would have reported. Includes tails too small to carry their own row."
+Table S4. Xenograft,markers,"Melanocytic marker genes in the tail, counted out of the five present in this matrix: PMEL, TYR, MLANA, SOX10 and DCT. TYRP1 and TRPM1 are absent from it."
+Table S4. Xenograft,null_mean,"Mean percentage of human genes in a permutation null of 1000 gene sets of the same size, drawn from genes of the same detection breadth. That matching, not the overall 43% human share of the matrix, is the baseline the observed value must beat."
+Table S4. Xenograft,z,Observed human percentage expressed in standard deviations of that null.
+Table S4. Xenograft,p_species,"Permutation p for enrichment of human genes against that null. The smallest attainable value is 1/1001 with 1000 draws, and marks a tail no draw reached. This is not the spatial autocorrelation p of Table S1; the two tests are unrelated."
+Table S4. Xenograft,fdr_species,Benjamini-Hochberg adjusted p_species over the tails of the section.
+Table S4. Xenograft,top_genes,"The fifteen genes of highest absolute loading in the tail, in the order returned, each marked (h) for human or (m) for mouse."
+Table S4. Xenograft,GO_human,"The five leading enriched biological-process terms of the tail against the human annotation database, formatted as in Table S1. The genes tested are those whose loading FDR is below 0.05 in that tail, not the tail at an absolute z above three that the other columns describe."
+Table S4. Xenograft,GO_mouse,As GO_human against the mouse annotation database.

@@ -1,0 +1,28 @@
+Package versions
+================
+
+R 4.4.1 (2024-06-14 ucrt) on Windows 11 x64, throughout.
+
+consICA differs between the parts:
+
+  consICA 2.11.1   the demonstration (TENX117, MEND40, NCBI776)
+  consICA 2.7.4    the benchmark and everything derived from it
+  consICA 2.11.4   the control arm; scripts/benchmark/bench_B_setup.R sets out
+                   why the difference does not affect the comparison
+  consICA 2.11.2   the xenograft
+
+CFS 0.9.9.11, the CellsFromSpace configuration of the benchmark, built from
+gustaveroussy/CFS at 3926422e7b5264e92a75d665aa9ef447be88c273.
+
+Everything else the scripts load, as the runs recorded it:
+
+  AnnotationDbi         1.66.0      ggplot2               4.0.3
+  GO.db                 3.19.1      ica                   1.0-3
+  GOSemSim              2.30.2      matrixStats           1.5.0
+  Matrix                1.7-3       mgcv                  1.9-4
+  Seurat                5.5.0       org.Hs.eg.db          3.19.1
+  SingleCellExperiment  1.26.0      patchwork             1.3.2
+  clue                  0.3-67      purrr                 1.0.4
+  dplyr                 1.2.1       spdep                 1.4-2
+  e1071                 1.7-17      topGO                 2.56.0
+  fastICA               1.2-7       zellkonverter         1.14.1
