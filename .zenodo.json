@@ -1,0 +1,44 @@
+{
+  "upload_type": "software",
+  "title": "Analysis code for: Consensus independent component analysis resolves tumour spatial transcriptomics into interpretable transcriptional programmes",
+  "version": "1.0.0",
+  "language": "eng",
+  "license": "mit",
+  "creators": [
+    {
+      "name": "Chepeleva, Maryna",
+      "affiliation": "Luxembourg Institute of Health, Luxembourg",
+      "orcid": "0000-0003-3036-4916"
+    }
+  ],
+  "description": "<p>R code reproducing the analyses of the manuscript <em>Consensus independent component analysis resolves tumour spatial transcriptomics into interpretable transcriptional programmes</em>.</p><p>consICA resolves a spatial expression matrix into transcriptional programmes without being given the coordinates of the spatial units. Each programme is a gene signature with a weight over every unit, and its spatial organization emerges in that map. The deposit covers the demonstration on five HEST-1k slides, four tumour types on two platforms, the comparison against single-run ICA configurations, and a cross-species section in which a human melanoma grows in mouse brain and every gene carries the genome it mapped to.</p><p>The expression matrices are not redistributed. <code>scripts/download_hest.R</code> fetches them from HEST-1k, and <code>README.md</code> gives the requirements and the order in which the scripts run.</p>",
+  "keywords": [
+    "spatial transcriptomics",
+    "independent component analysis",
+    "consensus ICA",
+    "matrix factorization",
+    "reference-free deconvolution",
+    "Visium",
+    "Xenium",
+    "tumour microenvironment",
+    "R"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.1093/bioadv/vbae102",
+      "relation": "cites",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.52202/079017-1704",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.5281/zenodo.22924632",
+      "relation": "references",
+      "resource_type": "dataset"
+    }
+  ],
+  "notes": "The code is released under the MIT licence. One file, scripts/benchmark/cfs_ICASpatial.R, is copied from CellsFromSpace and carries that package's GPL, whose text is in LICENSE.GPL-2. The spatial transcriptomics data the scripts read are third-party, carry their own terms and are not redistributed here."
+}
